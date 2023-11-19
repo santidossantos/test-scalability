@@ -94,4 +94,23 @@ export class PingController {
     if (num <= 1) return 1;
     return this.fibonacci(num - 1) + this.fibonacci(num - 2);
   }
+
+  @get('/whoAmI', {
+    responses: {
+      '200': {
+        description: 'Return server',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'string',
+            },
+          },
+        },
+      },
+    },
+  })
+  async whoAmI(): Promise<string> {
+    const serverInfo = ' Host: ' + process.env.HOST;
+    return serverInfo;
+  }
 }

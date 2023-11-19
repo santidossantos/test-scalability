@@ -19,6 +19,8 @@ services:
     ports:
       - "3001:3000"
     cpu_quota: 25000
+    environment:
+      - HOST=node1
 
   node2:
     image: "iaw/worker:1.0"
@@ -28,3 +30,5 @@ services:
     ports:
       - "3002:3000"
     cpu_quota: 25000
+    environment:
+      - HOST=node2
